@@ -1,0 +1,13 @@
+%pool: pool=system layoutMap=cluster blocksize=128K
+%nsd: device=/dev/vdc servers=jpmc01.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1,0,1 pool=system
+%nsd: device=/dev/vdc servers=jpmc02.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1,0,2 pool=system
+%nsd: device=/dev/vdc servers=jpmc03.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1,1,1 pool=system
+%nsd: device=/dev/vdc servers=jpmc04.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1,1,2 pool=system
+%nsd: device=/dev/vdc servers=jpmc05.eng.platformlab.ibm.com usage=metadataOnly failureGroup=2,0,2 pool=system
+
+%pool: pool=fpodata blocksize=4096K allowWriteAffinity=yes writeAffinityDepth=1 blockGroupFactor=128
+%nsd: device=/dev/vdb servers=jpmc01.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
+%nsd: device=/dev/vdb servers=jpmc02.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
+%nsd: device=/dev/vdb servers=jpmc03.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
+%nsd: device=/dev/vdb servers=jpmc04.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
+%nsd: device=/dev/vdb servers=jpmc05.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
