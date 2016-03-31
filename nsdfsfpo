@@ -1,13 +1,13 @@
 %pool: pool=system layoutMap=cluster blocksize=128K
-%nsd: device=/dev/vdc servers=jpmc01.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1,0,1 pool=system
-%nsd: device=/dev/vdc servers=jpmc02.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1,0,2 pool=system
-%nsd: device=/dev/vdc servers=jpmc03.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1,1,1 pool=system
-%nsd: device=/dev/vdc servers=jpmc04.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1,1,2 pool=system
-%nsd: device=/dev/vdc servers=jpmc05.eng.platformlab.ibm.com usage=metadataOnly failureGroup=2,0,2 pool=system
+%nsd: nsd=gpfs1nsd  device=/dev/vdc servers=jpmc01.eng.platformlab.ibm.com usage=metadataOnly failureGroup=1 pool=system
+%nsd: nsd=gpfs2nsd  device=/dev/vdc servers=jpmc02.eng.platformlab.ibm.com usage=metadataOnly failureGroup=2 pool=system
+%nsd: nsd=gpfs3nsd  device=/dev/vdc servers=jpmc03.eng.platformlab.ibm.com usage=metadataOnly failureGroup=3 pool=system
+%nsd: nsd=gpfs4nsd  device=/dev/vdc servers=jpmc04.eng.platformlab.ibm.com usage=metadataOnly failureGroup=4 pool=system
+%nsd: nsd=gpfs5nsd  device=/dev/vdc servers=jpmc05.eng.platformlab.ibm.com usage=metadataOnly failureGroup=5 pool=system
 
-%pool: pool=fpodata blocksize=4096K allowWriteAffinity=yes writeAffinityDepth=1 blockGroupFactor=128
-%nsd: device=/dev/vdb servers=jpmc01.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
-%nsd: device=/dev/vdb servers=jpmc02.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
-%nsd: device=/dev/vdb servers=jpmc03.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
-%nsd: device=/dev/vdb servers=jpmc04.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
-%nsd: device=/dev/vdb servers=jpmc05.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
+%pool: pool=fpodata blocksize=1024K allowWriteAffinity=yes writeAffinityDepth=1 blockGroupFactor=128
+%nsd: nsd=gpfs6nsd  device=/dev/vdb servers=jpmc01.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,1 pool=fpodata
+%nsd: nsd=gpfs7nsd  device=/dev/vdb servers=jpmc02.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,0,2 pool=fpodata
+%nsd: nsd=gpfs8nsd  device=/dev/vdb servers=jpmc03.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,1,1 pool=fpodata
+%nsd: nsd=gpfs9nsd  device=/dev/vdb servers=jpmc04.eng.platformlab.ibm.com usage=dataOnly failureGroup=1,1,2 pool=fpodata
+%nsd: nsd=gpfs10nsd  device=/dev/vdb servers=jpmc05.eng.platformlab.ibm.com usage=dataOnly failureGroup=2,0,2 pool=fpodata
